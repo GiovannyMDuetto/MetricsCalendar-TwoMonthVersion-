@@ -1,5 +1,7 @@
 # MetricsCalendar-TwoMonthVersion-
 
+[Add here a prompt saying where you want to open this calendar, for an example "when the user clicks on this button [Select the button] opens this calendar floating bellow the button."]
+
 ```
 import { useState } from "react";
 import { defineProperties } from "figma:react";
@@ -47,7 +49,7 @@ const DAY_INDICATORS = Array.from({ length: 31 }, (_, i) => {
 
 // Days with anomalies - these will have the teal pulsing background
 // Strategically chosen days for visual impact (including weekends and mid-week)
-const ANOMALY_DAYS = [3, 7, 14, 21, 28];
+const ANOMALY_DAYS = [7, 14, 21];
 
 // Metric dropdown options
 const METRIC_OPTIONS = [
@@ -432,7 +434,7 @@ function IndicatorFilterBar({
         onClick={() => setShowNotes(!showNotes)}
         label="Notes"
       >
-        <div className="w-[8.49px] h-[8.49px] bg-[#AF75D9] transform rotate-45" />
+        <div className="w-[6px] h-[6px] bg-[#AF75D9] transform rotate-45" />
       </FilterButton>
 
       {/* Row 2 */}
@@ -453,7 +455,7 @@ function IndicatorFilterBar({
         <motion.div
           className="w-[6px] h-[6px] rounded-full bg-[#00ACC1]"
           animate={{ opacity: [0.4, 1, 0.4], scale: [0.9, 1.2, 0.9] }}
-          transition={{ duration: 1, repeat: Infinity, ease: 'easeInOut' }}
+          transition={{ duration: 0.6, repeat: Infinity, ease: 'easeInOut' }}
         />
       </FilterButton>
     </div>
@@ -552,7 +554,7 @@ function DatePickerDay({
               scale: [0.95, 1.05, 0.95]
             }}
             transition={{
-              duration: 1.2,
+              duration: 0.8,
               ease: "easeInOut",
               repeat: Infinity,
               repeatType: "loop"
@@ -601,7 +603,7 @@ function DatePickerDay({
               <div className="w-[6px] h-[6px] bg-[#2D64E8] rounded-full" />
             )}
             {showIndicators && hasNote && showNotes && (
-              <div className="w-[8.49px] h-[8.49px] bg-[#AF75D9] transform rotate-45" />
+              <div className="w-[6px] h-[6px] bg-[#AF75D9] transform rotate-45" />
             )}
             {showIndicators && hasRestriction && showRestrictions && (
               <div className="w-[6px] h-[6px] bg-[#FF9800] rounded-full" />
